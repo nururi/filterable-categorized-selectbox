@@ -5,7 +5,7 @@ class TopPageController < ApplicationController
 
   private
     def set_values
-      @values = {
+      @first_values = {
         'HTML5': 1,
         'CSS3': 2,
         'JavaScript': 3,
@@ -16,6 +16,15 @@ class TopPageController < ApplicationController
         'Bootstrap': 8,
         'Vue.js': 9,
         'Python': 10,
+      }
+      @second_values = {
+        '1s': 1,
+        '2p': 22,
+        '3m': 33,
+        '東': 41,
+        '白': 51,
+        '発': 52,
+        '中': 53,
       }
     end
 end

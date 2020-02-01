@@ -4,10 +4,13 @@
 <script src='https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js'></script>
 
 <%= form_with do | form | %>
-  <%= form.select :hoge_select, @values, { include_blank: true }, { class: 'choices__list choices__list--single' } %>
+  <%= form.select :first_select, @first_values, { include_blank: true }, { class: 'choices__list choices__list--single' } %>
+  <%= form.select :second_select, @second_values, { include_blank: true }, { class: 'choices__list choices__list--single' } %>
 <% end %>
 
 <script>
-const element = document.getElementById('hoge_select');
-const choices = new Choices(element);
+const selectList = document.querySelectorAll('select');
+selectList.forEach(function(select) {
+  const choices = new Choices(select);
+});
 </script>
