@@ -4,5 +4,10 @@
 <script src='https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js'></script>
 
 <%= form_with do | form | %>
-  <%= form.select :hoge_select, @values, { include_blank: true }, { class: :choices } %>
+  <%= form.select :hoge_select, @values, { include_blank: true }, { class: 'choices__list choices__list--single' } %>
 <% end %>
+
+<script>
+const element = document.getElementById('hoge_select');
+const choices = new Choices(element);
+</script>
