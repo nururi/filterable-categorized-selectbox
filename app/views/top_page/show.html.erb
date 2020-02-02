@@ -1,16 +1,4 @@
-<!-- Include Choices CSS -->
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css'/>
-<!-- Include Choices JavaScript (latest) -->
-<script src='https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js'></script>
-
 <%= form_with do | form | %>
   <%= form.select :first_select, @first_choices, { include_blank: true }, { class: 'choices__list choices__list--single' } %>
   <%= form.select :second_select, @second_choices, { include_blank: true }, { class: 'choices__list choices__list--single' } %>
 <% end %>
-
-<script>
-const selectList = document.querySelectorAll('select');
-selectList.forEach(function(select) {
-  const choices = new Choices(select);
-});
-</script>
