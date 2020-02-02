@@ -15,6 +15,6 @@ class Api::TilesController < ApplicationController
       when :三元牌 then dragons
       else characters.merge(dots).merge(bamboos).merge(wings).merge(dragons)
       end
-    render json: tiles
+    render json: tiles.to_a
   end
 end
