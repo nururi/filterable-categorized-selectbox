@@ -33,7 +33,7 @@ Rails/RefuteMethods:
 
 # Prefer &&/|| over and/or.
 Style/AndOr:
-  Enabled: true
+  Enabled: false
 
 # Align `when` with `case`.
 Layout/CaseIndentation:
