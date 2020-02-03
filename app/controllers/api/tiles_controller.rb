@@ -5,7 +5,9 @@ class Api::TilesController < ApplicationController
 
   def index
     tile_category_id = params[:tile_category_id]
-    tile_category = tile_categories.key(tile_category_id&.to_i)
+    render json: all_tiles and return if tile_category_id.blank?
+
+    tile_category = tile_categories.key(tile_category_id.to_i)
     tiles =
       case tile_category
       when :萬子 then characters
@@ -13,8 +15,8 @@ class Api::TilesController < ApplicationController
       when :索子 then bamboos
       when :風牌 then wings
       when :三元牌 then dragons
-      else characters.merge(dots).merge(bamboos).merge(wings).merge(dragons)
+      else all_tiles
       end
-    render json: tiles.to_a
+    render json: tiles
   end
 end

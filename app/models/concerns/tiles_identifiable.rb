@@ -6,11 +6,11 @@ module TilesIdentifiable
   included do
     def tile_categories
       {
-        萬子: 0,
-        筒子: 1,
-        索子: 2,
-        風牌: 3,
-        三元牌: 4,
+        '萬子': 0,
+        '筒子': 1,
+        '索子': 2,
+        '風牌': 3,
+        '三元牌': 4,
       }
     end
 
@@ -26,34 +26,31 @@ module TilesIdentifiable
       chinese_numerals[number - 1]
     end
 
-    # tiles: { name: index }
-    def characters
-      numbers.map { | number | [ "#{to_chinese_numerals(number)}萬", (10 * 0) + number ] }.to_h.symbolize_keys
+    # tile: { display_name:, index: }
+    def characters(base_index: 10 * 0)
+      numbers.map { | number | { display_name: "#{to_chinese_numerals(number)}萬", index: base_index + number } }
     end
 
-    def dots
-      numbers.map { | number | [ "#{to_chinese_numerals(number)}筒", (10 * 1) + number ] }.to_h.symbolize_keys
+    def dots(base_index: 10 * 1)
+      numbers.map { | number | { display_name: "#{to_chinese_numerals(number)}筒", index: base_index + number } }
     end
 
-    def bamboos
-      numbers.map { | number | [ "#{to_chinese_numerals(number)}索", (10 * 2) + number ] }.to_h.symbolize_keys
+    def bamboos(base_index: 10 * 2)
+      numbers.map { | number | { display_name: "#{to_chinese_numerals(number)}索", index: base_index + number } }
     end
 
-    def wings
-      {
-        東: (10 * 3) + 1,
-        南: (10 * 3) + 2,
-        西: (10 * 3) + 3,
-        北: (10 * 3) + 4,
-      }
+    def wings(base_index: 10 * 3)
+      ['東', '南', '西', '北'].map.with_index(1) {
+        | wing, index | { display_name: wing, index: base_index + index } }
     end
 
-    def dragons
-      {
-        白: (10 * 4) + 1,
-        発: (10 * 4) + 2,
-        中: (10 * 4) + 3,
-      }
+    def dragons(base_index: 10 * 4)
+      ['白', '發', '中'].map.with_index(1) {
+        | dragon, index | { display_name: dragon, index: base_index + index } }
+    end
+
+    def all_tiles
+      characters | dots | bamboos | wings | dragons
     end
   end
 end

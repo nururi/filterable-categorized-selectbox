@@ -6,7 +6,6 @@ class TopPageController < ApplicationController
 
   private
     def set_values
-      @first_choices = tile_categories
-      @second_choices = {}
+      @first_choices = tile_categories.to_a
     end
 end
