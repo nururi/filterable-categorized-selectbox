@@ -10,7 +10,7 @@ module TilesIdentifiable
       when :萬子 then characters
       when :筒子 then dots
       when :索子 then bamboos
-      when :風牌 then wings
+      when :風牌 then winds
       when :三元牌 then dragons
       else all_tiles
       end
@@ -51,9 +51,9 @@ module TilesIdentifiable
       numbers.map { | number | { display_name: "#{to_chinese_numerals(number)}索", index: base_index + number } }
     end
 
-    def wings(base_index: 10 * 3)
+    def winds(base_index: 10 * 3)
       ['東', '南', '西', '北'].map.with_index(1) {
-        | wing, index | { display_name: wing, index: base_index + index } }
+        | wind, index | { display_name: wind, index: base_index + index } }
     end
 
     def dragons(base_index: 10 * 4)
@@ -62,7 +62,7 @@ module TilesIdentifiable
     end
 
     def all_tiles
-      characters | dots | bamboos | wings | dragons
+      characters | dots | bamboos | winds | dragons
     end
   end
 end
