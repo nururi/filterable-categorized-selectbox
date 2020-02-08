@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
     firstSelect.addEventListener('change', setSecondChoices); // inputだと発火しない
   }
 
+  /* get tiles json by fetch api */
+  async function getTiles(tile_category_id) {
+    const params = new URLSearchParams();
+    params.set('tile_category_id', tile_category_id);
+    const apiURL = `/api/tiles?${params}`;
+    const response = await fetch(apiURL);
+    const json = await response.json();
+    return json;
+  }
+
   /* set values to second select */
   function setSecondChoices() {
     const secondSelect = document.getElementById('second_select');
@@ -24,18 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
     /* clear current values & selected item */
     choices.clearStore();
     const tile_category_id = firstSelect.value;
-    const params = new URLSearchParams();
-    params.set('tile_category_id', tile_category_id);
-    const url = `/api/tiles?${params}`;
-    /* get tiles JSON by fetch api */
-    fetch(url).then(function(response) {
-      return response.json();
-    }).then(function(json) {
-      console.info(`json: ${JSON.stringify(json)}`);
-      if (json != null) {
-        // setChoices(choices, value, label, replaceChoices);
-        choices.setChoices(json, 'index', 'display_name', true);
-      }
-    });
+    getTiles(tile_category_id)
+      .then(json => {
+        console.info(`json: ${JSON.stringify(json)}`);
+        if (json != null) {
+          // setChoices(choices, value, label, replaceChoices);
+          choices.setChoices(json, 'index', 'display_name', true);
+        }
+      });
   }
 });
