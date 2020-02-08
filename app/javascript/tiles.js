@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* select boxes */
   const firstSelect = document.getElementById('first_select')
   if (firstSelect != null) {
-    firstSelect.addEventListener('change', setSecondChoices);
+    firstSelect.addEventListener('change', setSecondChoices); // inputだと発火しない
   }
 
   function setSecondChoices() {
