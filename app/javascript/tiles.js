@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* add event listener to first select */
   const firstSelect = document.getElementById('first_select')
   if (firstSelect != null) {
-    firstSelect.addEventListener('change', setSecondChoices); // inputだと発火しない
+    firstSelect.addEventListener('change', setSecondChoices); // type: 'input' is not effective.
   }
 
   /* get tiles json by fetch api */
