@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   /* apply choices to select boxes */
   const selects = document.querySelectorAll('select');
+  const choicesOptions = { shouldSort: false, removeItemButton: true, searchResultLimit: 9 };
   selects.forEach(function(select) {
-    select.choices = new Choices(select, { shouldSort: false, removeItemButton: true, searchResultLimit: 9 });
+    select.choices = new Choices(select, choicesOptions);
   });
 
   /* select boxes */
