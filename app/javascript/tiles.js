@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   /* apply choices to select boxes */
+  const choicesOptions = {
+    shouldSort: false,
+    removeItemButton: true,
+    searchResultLimit: 9,   // default: 4
+    searchFields: ['label']
+  };
   const selects = document.querySelectorAll('select');
-  const choicesOptions = { shouldSort: false, removeItemButton: true, searchResultLimit: 9 };
   selects.forEach(function(select) {
     select.choices = new Choices(select, choicesOptions);
   });
