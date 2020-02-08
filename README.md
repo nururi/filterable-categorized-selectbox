@@ -1,2 +1,2 @@
-# app-sandbox
-private sandbox
+# filterable-categorized-selectbox
+filterable categorized selectbox sample by choices.js + fetchAPI
