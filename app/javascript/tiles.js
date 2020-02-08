@@ -34,13 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
     /* clear current values & selected item */
     choices.clearStore();
     const tile_category_id = firstSelect.value;
-    getTiles(tile_category_id)
-      .then(json => {
-        console.info(`json: ${JSON.stringify(json)}`);
-        if (json != null) {
-          // setChoices(choices, value, label, replaceChoices);
-          choices.setChoices(json, 'index', 'display_name', true);
-        }
-      });
+    getTiles(tile_category_id).then(json => {
+      // setChoices(choices, value, label, replaceChoices);
+      choices.setChoices(json, 'index', 'display_name', true);
+    });
   }
 });
