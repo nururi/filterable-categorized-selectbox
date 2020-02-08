@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     select.choices = new Choices(select, choicesOptions);
   });
 
-  /* select boxes */
+  /* add event listener to first select */
   const firstSelect = document.getElementById('first_select')
   if (firstSelect != null) {
     firstSelect.addEventListener('change', setSecondChoices); // inputだと発火しない
   }
 
+  /* set values to second select */
   function setSecondChoices() {
     const secondSelect = document.getElementById('second_select');
     const choices = secondSelect.choices;
+    /* clear current values & selected item */
     choices.clearStore();
     const tile_category_id = firstSelect.value;
     const params = new URLSearchParams();
