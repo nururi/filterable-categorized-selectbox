@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     shouldSort: false,
     removeItemButton: true,
     searchResultLimit: 9,   // default: 4
-    searchFields: ['label']
+    searchFields: ['label'] // default: ['label', 'value']
   };
   const selects = document.querySelectorAll('select');
   selects.forEach(function(select) {
