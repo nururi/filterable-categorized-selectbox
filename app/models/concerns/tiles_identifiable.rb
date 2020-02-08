@@ -4,13 +4,25 @@ module TilesIdentifiable
   extend ActiveSupport::Concern
 
   included do
+    def get_tiles(tile_category_id:)
+      tile_category = tile_categories.key(tile_category_id)
+      case tile_category
+      when :萬子 then characters
+      when :筒子 then dots
+      when :索子 then bamboos
+      when :風牌 then wings
+      when :三元牌 then dragons
+      else all_tiles
+      end
+    end
+
     def tile_categories
       {
-        '萬子': 0,
-        '筒子': 1,
-        '索子': 2,
-        '風牌': 3,
-        '三元牌': 4,
+        萬子: 0,
+        筒子: 1,
+        索子: 2,
+        風牌: 3,
+        三元牌: 4,
       }
     end
 
