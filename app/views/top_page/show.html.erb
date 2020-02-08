@@ -1,6 +1,8 @@
-<%= form_with do | form | %>
-  <%= form.label 'tile categories' %>
-  <%= form.select :first_select, @first_choices, { include_blank: true }, {} %>
-  <%= form.label 'tiles' %>
-  <%= form.select :second_select, [], { include_blank: true }, {} %>
-<% end %>
+<div class='form_wrapper'>
+  <%= form_with do | form | %>
+    <%= form.label 'tile categories' %>
+    <%= form.select :first_select, @first_choices, { include_blank: true }, {} %>
+    <%= form.label 'tiles' %>
+    <%= form.select :second_select, [], { include_blank: true }, {} %>
+  <% end %>
+</div>
